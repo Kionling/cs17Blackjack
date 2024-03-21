@@ -1,0 +1,27 @@
+Start
+1. Initialize the game and import libraries
+ - Create a deck of cards
+ - Shuffle the deck 
+
+2. Deal cards
+    - Deal two cards to player 
+    - Deal two cards to dealer 
+
+3. Player turn 
+    - Display cards to user and total 
+    - Ask player to hit or stay
+    - if hit then deal another card and display new total 
+    - Repeat till bust or stand. 
+
+4. Dealer turn 
+    - Display dealer hand 
+    - If dealer's hand is less than 17, deal another card to dealer 
+
+5. Determine winner
+    - if player loses, dealer wins
+    - Vice versa, if dealer loses, player wins
+    - if both lose, compare total hand and Determine winner
+
+6. Prompt user for another game 
+    - if yes repeat step 1 
+    - if no then end game
