@@ -29,4 +29,41 @@ def display_hand(hand, player_type):
     print(f"{player_type} hand:" + " ".join([f"{card['value']} of {card['suit']}" for card in hand]))
     print(f"{player_type} hand value: {hand_value(hand)}")
 
-    
+
+def blackjack():
+    deck = create_deck()
+    player_hand = [deck.pop(), deck.pop()]
+    dealer_hand = [deck.pop(), deck.pop()]
+    display_hand(player_hand, "Player")
+    display_hand(dealer_hand, "Dealer")
+    while hand_value(player_hand) < 21:
+        hit_or_stand = input("Do you want to hit or stand? ")
+        if hit_or_stand.lower() == "hit":
+            player_hand.append(deck.pop())
+            display_hand(player_hand, "Player")
+        else:
+            break
+    if hand_value(player_hand) > 21:
+        print("Player busts, dealer wins!")
+        return
+    while hand_value(dealer_hand) < 17:
+        dealer_hand.append(deck.pop())
+        display_hand(dealer_hand, "Dealer")
+    if hand_value(dealer_hand) > 21:
+        print("Dealer busts, player wins!")
+        return
+    if hand_value(player_hand) > hand_value(dealer_hand):
+        print("Player wins!")
+    elif hand_value(player_hand) < hand_value(dealer_hand):
+        print("Dealer wins!")
+    else:
+        print("It's a tie!")
+    play_again = input("Do you want to play again? ")
+    if play_again.lower() != "yes":
+        print("Thanks for playing!")
+    else:
+        blackjack()
+
+
+if __name__ == "__main__":
+    blackjack()
