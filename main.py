@@ -24,3 +24,9 @@ def hand_value(hand):
         ace_count -= 1
     return value
 
+
+def display_hand(hand, player_type):
+    print(f"{player_type} hand:" + " ".join([f"{card['value']} of {card['suit']}" for card in hand]))
+    print(f"{player_type} hand value: {hand_value(hand)}")
+
+    
